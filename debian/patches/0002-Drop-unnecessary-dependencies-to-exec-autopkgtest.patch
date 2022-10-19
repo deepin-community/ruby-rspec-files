@@ -1,0 +1,32 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Tue, 23 Jun 2020 20:27:59 +0900
+Subject: Drop unnecessary dependencies to exec autopkgtest
+
+---
+ rspec-files.gemspec | 2 --
+ spec/spec_helper.rb | 2 --
+ 2 files changed, 4 deletions(-)
+
+Index: ruby-rspec-files/rspec-files.gemspec
+===================================================================
+--- ruby-rspec-files.orig/rspec-files.gemspec
++++ ruby-rspec-files/rspec-files.gemspec
+@@ -14,7 +14,4 @@ Gem::Specification.new do |spec|
+ 	spec.files = Dir.glob('{lib}/**/*', File::FNM_DOTMATCH, base: __dir__)
+ 	
+ 	spec.add_dependency "rspec", "~> 3.0"
+-	
+-	spec.add_development_dependency "bundler"
+-	spec.add_development_dependency "covered"
+ end
+Index: ruby-rspec-files/spec/spec_helper.rb
+===================================================================
+--- ruby-rspec-files.orig/spec/spec_helper.rb
++++ ruby-rspec-files/spec/spec_helper.rb
+@@ -1,6 +1,4 @@
+ 
+-require 'covered/rspec'
+-
+ RSpec.configure do |config|
+ 	# Enable flags like --only-failures and --next-failure
+ 	config.example_status_persistence_file_path = ".rspec_status"
